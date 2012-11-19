@@ -53,6 +53,7 @@
 	NSString* rawPacket = [NSString stringWithFormat:@"%@///%@\n",type,message];
 	[self.socket writeData:[rawPacket dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
 
+#if TARGET_IPHONE_SIMULATOR
 	NSMutableString* log = [[NSMutableString alloc] init];
 	[log setString:@"Message type ("];
 	[log appendString:type];
@@ -60,6 +61,7 @@
 	[log appendString:message];
 	
 	NSLog(log);
+#endif
 
 }
 
@@ -137,6 +139,7 @@
 			
 			NSArray* parts = [message componentsSeparatedByString:@"///"];
 			
+#if TARGET_IPHONE_SIMULATOR
 			NSMutableString* log = [[NSMutableString alloc] init];
 			[log setString:@"Message type ("];
 			[log appendString:parts[0]];
@@ -144,6 +147,7 @@
 			[log appendString:parts[1]];
 			
 			NSLog(log);
+#endif
 			
 			[self.delegate netConnection: self didReceiveMessage:parts[1] ofType:parts[0]];
 		}
