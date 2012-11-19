@@ -9,7 +9,7 @@
 #import "ABNetServer.h"
 
 @interface ABNetServer()
-@property(nonatomic,retain) GCDAsyncSocket* serverSocket;
+@property(nonatomic,strong) GCDAsyncSocket* serverSocket;
 @property(readwrite) NSNetService* netService;
 
 @end
