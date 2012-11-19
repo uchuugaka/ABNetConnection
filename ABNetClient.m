@@ -9,7 +9,7 @@
 #import "ABNetClient.h"
 
 @interface ABNetClient()
-@property (nonatomic,retain) 	NSNetServiceBrowser* serviceBrowser;
+@property (nonatomic,strong) 	NSNetServiceBrowser* serviceBrowser;
 @property (readwrite) NSNetService* netService;
 @end
 
